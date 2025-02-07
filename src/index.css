@@ -1,0 +1,48 @@
+body{
+  padding-top: 80px;
+  padding-left: 100px;
+
+}
+
+.habitacion-container {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 20px;
+}
+
+.habitacion-imagen {
+  margin-left: 40px; 
+  border-radius: 8px; 
+  width: 150px; 
+  height: 150px; 
+}
+
+.disponible {
+  color: green;
+  font-weight: bold; 
+}
+
+.ocupada {
+  color: red;
+  font-weight: bold; 
+}
+
+#titulo{
+  margin-bottom: 60px;
+}
+
+#nombre{
+  margin-top: 10px;
+}
+
+.fecha{
+  margin-top: 10px;
+}
+
+.tipo{
+  margin-top: 10px;
+}
+
+.btn {
+margin-top: 10px;
+}
