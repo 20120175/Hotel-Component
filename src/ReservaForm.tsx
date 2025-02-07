@@ -13,8 +13,8 @@ export const ReservaForm = ({ hacerReserva }: ReservaFormProps) => {
   const [tipoHabitacion, setTipoHabitacion] = useState(""); /*Aqui se usa la variable temporal setTipoHabitacion para mantener clariddad
   Pero en la funcion hacerReserva, se maneja con el atributo 'tipo', el cual esta definido en la clase habitacion
   */
-  // Listado de tipos de habitación válidos
-  const tiposHabitacion = ["Suite", "Doble", "Individual"];
+  // Listado de tipos de habitación válidos, se debe de actualizar si se agregan nuevas
+  const tiposHabitacion = ["Suite", "Doble", "Individual","VIP"];
 
   const handleSubmit = (e: React.FormEvent) => {//Manejador del envio del formulario
     e.preventDefault();//evita que la pagina se recargue al enviar el formulario
@@ -61,6 +61,7 @@ export const ReservaForm = ({ hacerReserva }: ReservaFormProps) => {
           <option value="Suite">Suite</option>
           <option value="Doble">Doble</option>
           <option value="Individual">Individual</option>
+          <option value="VIP">VIP</option> {/*Aqui se agregan las nuevas opciones de las habitaciones*/}
         </select>
       </div>
       <button className='btn btn-success' type="submit">Reservar</button>

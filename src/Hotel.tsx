@@ -4,12 +4,9 @@ import React, { useState } from 'react';
 import { Habitacion } from './Habitacion'; //Importacion de la logica para la habitacion
 import { Usuario } from './Usuario'; //Importacion de la logica para el usuario
 import { ReservaForm } from './ReservaForm'; //Importacion de el componente hijo donde se maneja el formulario para la reserva
-
-
+import { HabitacionFactory } from './Habitacion';
 //Creamos las importaciones para las rutas de las imagenes
-import suiteImage from './assets/suite.jpg';
-import dobleImage from './assets/doble.jpg';
-import individualImage from './assets/individual.jpg';
+
 
 type HotelProps = { //recibe los proptypes desde el componente padre 
   nombre: string;
@@ -19,10 +16,16 @@ type HotelProps = { //recibe los proptypes desde el componente padre
 export const Hotel = ({ nombre, ubicacion }: HotelProps) => {
   //Aqui se crean las instancias de la clase Habitacion
   const [habitaciones] = useState([
-    new Habitacion("Suite", 2000, true, suiteImage),
-    new Habitacion("Doble", 1500, true, dobleImage),
-    new Habitacion("Individual", 1000, true, individualImage),
-  ]);
+  /*Aqui simplemente se crean instancias pasando como argumento los nombres de las habitaciones registradas en nuestrod diccionario
+    Lo que delega toda la responsabilidad a la logica de la aplicacion (Habitacion.ts), de este modo el agregar una nueva
+    habitacion es mas simple, ordenado, y limpio ya que separa parte de la logica que antes se manejaba en el mismo componente
+    Aqui solo mandamos llamar los tipos.
+  */
+    HabitacionFactory.crearHabitacion("Suite"),
+    HabitacionFactory.crearHabitacion("Doble"),
+    HabitacionFactory.crearHabitacion("Individual"),
+    HabitacionFactory.crearHabitacion("VIP"), //habitacion nueva
+  ].filter(h => h !== null) as Habitacion[]); // Filtra nulos por si seleccionan una opcion nula o que no se encuentre
 //Se maneja el estado de la reserva por medio del Hook UseState
   const [reserva, setReserva] = useState<string>("");
 

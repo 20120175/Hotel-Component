@@ -25,3 +25,11 @@ export class Usuario {
       }
     }
   }
+
+  // Factory Method
+export class UsuarioFactory { /*Esta fabrica de usuarios no esta implementada como tal en el codigo pero se 
+  puede usar para escalar la aplicacion, agregando tipos de usuarios*/
+  static crearUsuario(nombreUsuario: string, fechaEntrada: string, fechaSalida: string): Usuario {
+    return new Usuario(nombreUsuario, fechaEntrada, fechaSalida);
+  }
+}
